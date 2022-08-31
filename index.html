@@ -14,25 +14,26 @@
         <h2>Film Project</h2>
       </nav>
 
-      <section class="add-film">
-        <input type="text" placeholder="Movie Name">
-        <input type="text" placeholder="Movie Director">
-        <input type="text" placeholder="Movie Link">
+      <form class="add-film">
+        <input type="text" placeholder="Movie Name" id="title">
+        <input type="text" placeholder="Movie Director" id="director">
+        <input type="text" placeholder="Movie Image Link" id="link">
         <button type="submit">Add Movie</button>
-      </section>
+      </form>
 
-      <table>
-        <tr>
-          <th>Movie Name</th>
-          <th>Movie Director</th>
-          <th>Movie Link</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-      </table>
+      <section id="movie-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Movie Name</th>
+              <th>Movie Director</th>
+              <th>Movie Image Link</th>
+            </tr>
+          </thead>
+          <tbody id="movie-list">   
+          </tbody>
+        </table>
+      </section>
 
       <section class="clear-all">
         <button>Clear All Movies</button>
@@ -40,5 +41,12 @@
       
     </main>
   </div>
+
+  <script src="film.js"></script>
+  <script src="storage.js"></script>
+  <script src="ui.js"></script>
+
+  <script src="app.js"></script>
+
 </body>
 </html>
