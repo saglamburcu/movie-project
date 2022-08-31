@@ -33,6 +33,23 @@
   flex-direction: column;
 }
 
+.add-film .info {
+  width: 60%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+}
+
+.success {
+  background-color: rgb(124, 197, 124);
+}
+
+.fail {
+  background-color: rgb(184, 132, 132);
+}
+
 .add-film input {
   width: 60%;
   padding: 5px;

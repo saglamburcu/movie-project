@@ -20,4 +20,19 @@ UI.prototype.clearInputs = (movieName, movieDirector, movieImage) => {
   movieName.value = "";
   movieDirector.value = "";
   movieImage.value = "";
+};
+
+UI.prototype.showInfo = (status, message) => {
+  const form = document.querySelector(".add-film");
+
+  const alert = document.createElement("div");
+  alert.className = `info ${status}`
+  alert.textContent = message;
+
+  form.prepend(alert)
+
+  setTimeout(() => {
+    alert.remove();
+  }, 2000)
 }
+
