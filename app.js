@@ -45,6 +45,7 @@ const deleteMovie = (e) => {
   if (e.target.id === "delete-movie") {
     ui.deleteMovieFromUI(e.target);
     ui.showInfo("warning", "The movie is removed from the list");
+    storage.deleteMovieFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
   }
 }
 
