@@ -50,6 +50,10 @@
   background-color: rgb(184, 132, 132);
 }
 
+.warning {
+  background-color: #f0d250;
+}
+
 .add-film input {
   width: 60%;
   padding: 5px;
@@ -84,6 +88,7 @@ tr:nth-child(even) {
 #movie-image {
   max-width: 150px; 
   max-height: 150px;
+  margin-right: 20px;
 }
 
 #movie-table {
@@ -99,9 +104,15 @@ tr:nth-child(even) {
   justify-content: center;
 }
 
-.clear-all button {
+button {
   background-color: rgb(173, 21, 21);
   color: white;
   border-radius: 5px;
   padding: 5px 10px;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

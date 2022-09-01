@@ -2,16 +2,21 @@ const form = document.querySelector(".add-film");
 const movieName = document.querySelector("#title");
 const movieDirector = document.querySelector("#director");
 const movieImage = document.querySelector("#link");
+const movieTable = document.querySelector("#movie-table");
 
 const ui = new UI();
 const storage = new Storage();
 
 function eventListeners() {
   form.addEventListener("submit", addMovie);
+
   document.addEventListener("DOMContentLoaded", () => {
     let films = storage.getMovieFromStorage();
     ui.loadAllFilms(films);
-  })
+  });
+
+  movieTable.addEventListener("click", deleteMovie)
+
 };
 
 const addMovie = (e) => {
@@ -34,6 +39,13 @@ const addMovie = (e) => {
   ui.clearInputs(movieName, movieDirector, movieImage);
   e.preventDefault();
 
+}
+
+const deleteMovie = (e) => {
+  if (e.target.id === "delete-movie") {
+    ui.deleteMovieFromUI(e.target);
+    ui.showInfo("warning", "The movie is removed from the list");
+  }
 }
 
 eventListeners();

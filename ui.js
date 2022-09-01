@@ -9,8 +9,9 @@ UI.prototype.addMovieToUI = (newMovie) => {
     <tr>
       <td>${newMovie.title}</td>
       <td>${newMovie.director}</td>
-      <td>
+      <td class="image-container">
         <img id="movie-image" src=${newMovie.url} alt="#">
+        <button id="delete-movie" type="button">Filmi Sil</button>
       </td>
     </tr>
   `
@@ -39,16 +40,21 @@ UI.prototype.showInfo = (status, message) => {
 UI.prototype.loadAllFilms = (films) => {
   const movieList = document.querySelector("#movie-list");
 
-  movieList.innerHTML = films.map((film) => (
-    `
+  films.forEach((film) => (
+    movieList.innerHTML += `
     <tr>
       <td>${film.title}</td>
       <td>${film.director}</td>
-      <td>
+      <td class="image-container">
         <img id="movie-image" src=${film.url} alt="#">
+        <button id="delete-movie" type="button">Filmi Sil</button>
       </td>
     </tr>
   `
   ))
+};
+
+UI.prototype.deleteMovieFromUI = (element) => {
+  element.parentElement.parentElement.remove()
 }
 
