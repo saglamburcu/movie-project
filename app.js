@@ -3,11 +3,16 @@ const movieName = document.querySelector("#title");
 const movieDirector = document.querySelector("#director");
 const movieImage = document.querySelector("#link");
 
+const ui = new UI();
+const storage = new Storage();
+
 function eventListeners() {
   form.addEventListener("submit", addMovie);
+  document.addEventListener("DOMContentLoaded", () => {
+    let films = storage.getMovieFromStorage();
+    ui.loadAllFilms(films);
+  })
 };
-
-const ui = new UI();
 
 const addMovie = (e) => {
   const movieNameVal = movieName.value;
@@ -22,12 +27,13 @@ const addMovie = (e) => {
     //console.log(newFilm)
 
     ui.addMovieToUI(newFilm);
-    ui.showInfo("success", "The movie is added to the list")
+    storage.addMovieToStorage(newFilm);
+    ui.showInfo("success", "The movie is added to the list");
   }
 
   ui.clearInputs(movieName, movieDirector, movieImage);
-
   e.preventDefault();
+
 }
 
 eventListeners();

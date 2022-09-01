@@ -36,3 +36,19 @@ UI.prototype.showInfo = (status, message) => {
   }, 2000)
 }
 
+UI.prototype.loadAllFilms = (films) => {
+  const movieList = document.querySelector("#movie-list");
+
+  movieList.innerHTML = films.map((film) => (
+    `
+    <tr>
+      <td>${film.title}</td>
+      <td>${film.director}</td>
+      <td>
+        <img id="movie-image" src=${film.url} alt="#">
+      </td>
+    </tr>
+  `
+  ))
+}
+
