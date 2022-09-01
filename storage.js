@@ -1,5 +1,5 @@
 class Storage {
-  addMovieToStorage(newFilm) {
+  static addMovieToStorage(newFilm) {
     let films = this.getMovieFromStorage();
 
     films.push(newFilm);
@@ -7,7 +7,7 @@ class Storage {
     localStorage.setItem("movies", JSON.stringify(films));
   }
 
-  getMovieFromStorage() {
+  static getMovieFromStorage() {
     let movies;
 
     if (localStorage.getItem("movies") === null) {
@@ -19,7 +19,7 @@ class Storage {
     return movies;
   }
 
-  deleteMovieFromStorage(filmTitle) {
+  static deleteMovieFromStorage(filmTitle) {
     let movies = this.getMovieFromStorage();
 
     movies.forEach((movie, index) => {
@@ -31,7 +31,7 @@ class Storage {
     localStorage.setItem("movies", JSON.stringify(movies));
   }
 
-  clearAllMoviesFromStorage() {
+  static clearAllMoviesFromStorage() {
     localStorage.removeItem("movies")
   }
 }

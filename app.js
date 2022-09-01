@@ -5,15 +5,12 @@ const movieImage = document.querySelector("#link");
 const movieTable = document.querySelector("#movie-table");
 const clearAllButton = document.querySelector("#clear-all-button");
 
-const ui = new UI();
-const storage = new Storage();
-
 function eventListeners() {
   form.addEventListener("submit", addMovie);
 
   document.addEventListener("DOMContentLoaded", () => {
-    let films = storage.getMovieFromStorage();
-    ui.loadAllFilms(films);
+    let films = Storage.getMovieFromStorage();
+    UI.loadAllFilms(films);
   });
 
   movieTable.addEventListener("click", deleteMovie);
@@ -28,33 +25,33 @@ const addMovie = (e) => {
 
   if (movieNameVal === "" || movieDirectorVal === "" || movieImageVal === "") {
     // Error Message
-    ui.showInfo("fail", "You entered missing information!");
+    UI.showInfo("fail", "You entered missing information!");
   } else {
     const newFilm = new Film(movieNameVal, movieDirectorVal, movieImageVal);
     //console.log(newFilm)
 
-    ui.addMovieToUI(newFilm);
-    storage.addMovieToStorage(newFilm);
-    ui.showInfo("success", "The movie is added to the list");
+    UI.addMovieToUI(newFilm);
+    Storage.addMovieToStorage(newFilm);
+    UI.showInfo("success", "The movie is added to the list");
   }
 
-  ui.clearInputs(movieName, movieDirector, movieImage);
+  UI.clearInputs(movieName, movieDirector, movieImage);
   e.preventDefault();
 
 }
 
 const deleteMovie = (e) => {
   if (e.target.id === "delete-movie") {
-    ui.deleteMovieFromUI(e.target);
-    ui.showInfo("warning", "The movie is removed from the list");
-    storage.deleteMovieFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
+    UI.deleteMovieFromUI(e.target);
+    UI.showInfo("warning", "The movie is removed from the list");
+    Storage.deleteMovieFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
   }
 }
 
 const clearAllMovies = (e) => {
   if (confirm("Are you sure that want to delete all movies?")) {
-    ui.clearAllMoviesFromUI();
-    storage.clearAllMoviesFromStorage();
+    UI.clearAllMoviesFromUI();
+    Storage.clearAllMoviesFromStorage();
   }
 }
 
