@@ -30,6 +30,10 @@ class Storage {
 
     localStorage.setItem("movies", JSON.stringify(movies));
   }
+
+  clearAllMoviesFromStorage() {
+    localStorage.removeItem("movies")
+  }
 }
 
 

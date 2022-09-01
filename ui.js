@@ -58,3 +58,10 @@ UI.prototype.deleteMovieFromUI = (element) => {
   element.parentElement.parentElement.remove()
 }
 
+UI.prototype.clearAllMoviesFromUI = () => {
+  const movieList = document.querySelector("#movie-list");
+
+  while (movieList.firstElementChild !== null) {
+    movieList.firstElementChild.remove();
+  }
+}
